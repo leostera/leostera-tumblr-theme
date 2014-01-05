@@ -259,12 +259,15 @@
             }
             /* Tags */
             #date > span {
-                float: right;
-                margin-right: 8%;
+                display: block;
+                margin: 0;
+                margin-left: 5%;
+                /*float: left;*/
+                /*margin-left: 8%;*/
             }
             #date > span > a.tag {
                 margin: 2px 3px;
-                float: right;
+                /*float: left;*/
             }
             /* Date */
             #date {
@@ -529,6 +532,16 @@
             /* Start of Media Queries */
             /* Large desktops ----------- */
             @media only screen and (min-width: 1281px) {
+                 /* Tags */
+                #date > span {
+                    display: inline;
+                    float: right;
+                    margin-right: 8%;
+                }
+                #date > span > a.tag {
+                    margin: 2px 3px;
+                    float: right;
+                }
                 #sidebar {
                     width: 400px;
                 }
@@ -610,6 +623,16 @@
             }
             /* Tablets (Portrait) ----------- */
             @media only screen and (max-width: 800px) {
+                /* Tags */
+                #date > span {
+                    display: inline;
+                    float: right;
+                    margin-right: 8%;
+                }
+                #date > span > a.tag {
+                    margin: 2px 3px;
+                    float: right;
+                }
                 #sidebar {
                     display: block;
                 	height: auto;
@@ -674,6 +697,16 @@
             }
             /* Tablets (Landscape) ----------- */
             @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+                 /* Tags */
+                #date > span {
+                    display: inline;
+                    float: right;
+                    margin-right: 8%;
+                }
+                #date > span > a.tag {
+                    margin: 2px 3px;
+                    float: right;
+                }
                 #sidebar {
                     position: absolute;
                 }
