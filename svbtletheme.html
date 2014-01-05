@@ -2,6 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xml:lang="en" lang="en">
 <!-- Svbtle Theme for Tumblr by matteoroversi.com -->
     <head>
+    
+
+<link rel="stylesheet" href="//gist.github.com/assets/embed-bfcadee384027982121fdeb9930e78b2.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        function makeGist(d){
+            var link = $($(d).html())[0];
+            if(link){
+                $.ajax({
+                    url:link.innerHTML+'.json',
+                    dataType:'jsonp'
+                }).then(function(data){
+                    d.html(data.div);
+                });
+            }
+        }
+        $('.gist').each(function(i,v){
+            makeGist($(v));
+        });
+    });
+</script>
+    
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -233,6 +256,15 @@
                 background-color: #fff;
                 border-left: 1px solid #e3e3e3;
                 min-height: 900px;
+            }
+            /* Tags */
+            #date > span {
+                float: right;
+                margin-right: 8%;
+            }
+            #date > span > a.tag {
+                margin: 2px 3px;
+                float: right;
             }
             /* Date */
             #date {
@@ -694,6 +726,7 @@
                 {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
                 {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
             </div>
+            <iframe style="margin-top: 15px" width="100%" height="100%" id="prettycloud" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" scrolling="no" src="http://post-theory.com/pretty-cloud/frame/leostera/gocqe1"></iframe>
         </div>
         <!-- Main Content
         ---------------------------------->
@@ -809,6 +842,7 @@
             <!-- Text -->
             {block:Text}
                 <div id="date">
+                    
                     <a href="{Permalink}">
                         {block:Date}{DayOfMonth} {Month} {Year}{/block:Date}
                     </a>
@@ -826,6 +860,13 @@
 						{/block:IfDisqusShortname}
 					{/block:IfEnableCommentCount}
                     {/block:PermalinkPagination}
+                    <span>
+                        {block:HasTags}
+                           {block:Tags}
+                              <a href="{TagURL}" class="tag">#{Tag}</a>
+                           {/block:Tags}
+                        {/block:HasTags}
+                    </span>
                 </div>
                 <div id="post">
                     <a href="{Permalink}">
